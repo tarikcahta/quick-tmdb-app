@@ -6,29 +6,8 @@ export const useList = () => {
   if (!context) {
     throw new Error('useList must be used within a ListProvider');
   }
-  const {
-    listItems,
-    listType,
-    fetchList,
-    searchTerm,
-    searchResults,
-    setSearchTerm,
-    search,
-    selectedMediaItem,
-    setSelectedMediaItem,
-    loading,
-  } = context;
 
   return {
-    listItems,
-    listType,
-    fetchList,
-    searchTerm,
-    searchResults,
-    setSearchTerm,
-    search,
-    selectedMediaItem,
-    setSelectedMediaItem,
-    loading,
+    context,
   };
 };
