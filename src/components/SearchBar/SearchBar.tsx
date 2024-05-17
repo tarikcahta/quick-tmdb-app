@@ -1,7 +1,8 @@
 import { useList } from '../../hooks/useList';
 
 const SearchBar = () => {
-  const { searchTerm, setSearchTerm } = useList();
+  const { context } = useList();
+  const { searchTerm, setSearchTerm } = context;
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);

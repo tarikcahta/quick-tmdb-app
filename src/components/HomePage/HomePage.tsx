@@ -1,16 +1,17 @@
 import '../../styles/HomePage.css';
-import { useContext } from 'react';
 import List from '../List/List';
-import { ListContext } from '../../context/ListContext';
 import { Link } from 'react-router-dom';
 import SearchBar from '../SearchBar/SearchBar';
+import { useList } from '../../hooks/useList';
 
 const HomePage = () => {
-  const { fetchList } = useContext(ListContext);
+  const { context } = useList();
+  const { fetchList } = context;
 
   const handleLinkClick = (type: string) => {
     fetchList(type);
   };
+
   return (
     <div className="homepage">
       <span className="navbar">

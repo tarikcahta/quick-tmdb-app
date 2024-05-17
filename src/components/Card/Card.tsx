@@ -5,14 +5,16 @@ import { useList } from '../../hooks/useList';
 import { getMovieDetails, getTVSeriesDetails } from '../../requests';
 
 const Card: React.FC<CardProps> = ({ posterPath, title, id }) => {
+  const { context } = useList();
+  const { setSelectedMediaItem, listType } = context;
 
-  const {setSelectedMediaItem, listType} = useList();
-  
   const imageUrl = `https://image.tmdb.org/t/p/w300${posterPath}`;
 
-
   const handleCardClick = async () => {
-    const detailedData = listType === 'tvshows' ? await getTVSeriesDetails(id) : await getMovieDetails(id);
+    const detailedData =
+      listType === 'tvshows'
+        ? await getTVSeriesDetails(id)
+        : await getMovieDetails(id);
     setSelectedMediaItem(detailedData);
   };
 

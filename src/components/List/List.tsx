@@ -8,8 +8,9 @@ const isTVShow = (item: UnifiedMediaItem): item is TVShow => {
 };
 
 const List = () => {
+  const { context } = useList();
   const { listItems, listType, fetchList, loading, searchTerm, searchResults } =
-    useList();
+    context;
 
   useEffect(() => {
     if (listType) {
@@ -23,7 +24,17 @@ const List = () => {
 
   const itemsToRender = searchTerm.length >= 3 ? searchResults : listItems;
 
+  if (!listItems || listItems.length === 0) {
+    return <div>Loading...</div>;
+  }
 
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (!itemsToRender.length) {
+    return <div>No results found.</div>;
+  }
 
   return (
     <div className="homepage">

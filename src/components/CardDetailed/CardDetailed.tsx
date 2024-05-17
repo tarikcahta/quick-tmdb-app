@@ -6,7 +6,9 @@ const isTVShow = (item: UnifiedMediaItem): item is TVShow => {
 };
 
 const CardDetailed = () => {
-  const { selectedMediaItem } = useList();
+  const { context } = useList();
+  const { selectedMediaItem } = context;
+
   if (!selectedMediaItem) {
     return <div>No item selected</div>;
   }
@@ -25,7 +27,7 @@ const CardDetailed = () => {
       {selectedMediaItem.video ? (
         <iframe
           className="trailer-video"
-          src={selectedMediaItem?.video}
+          src={selectedMediaItem.video}
           title={title}
           frameBorder="0"
           allowFullScreen
