@@ -4,7 +4,7 @@ import {
   getMovies,
   searchTVShows,
   searchMovies,
-} from '../requests';
+} from '../requests/requests';
 import {
   ListProviderProps,
   Movie,
@@ -32,8 +32,9 @@ export const ListProvider = ({ children }: ListProviderProps) => {
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState<UnifiedMediaItem[]>([]);
-  const [selectedMediaItem, setSelectedMediaItem] =
-    useState<UnifiedMediaItem | undefined | null>(null);
+  const [selectedMediaItem, setSelectedMediaItem] = useState<
+    UnifiedMediaItem | undefined | null
+  >(null);
 
   const fetchList = useCallback(async (type: string) => {
     setLoading(true);
