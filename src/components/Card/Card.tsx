@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 import { CardProps } from '../../types/types';
 import { useList } from '../../hooks/useList';
-import { getMovieDetails, getTVSeriesDetails } from '../../requests';
+import { getMovieDetails, getTVSeriesDetails } from '../../requests/requests';
 
 const Card: React.FC<CardProps> = ({ posterPath, title, id }) => {
   const { context } = useList();
