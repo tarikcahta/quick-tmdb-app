@@ -19,7 +19,7 @@ const Card: React.FC<CardProps> = ({ posterPath, title, id }) => {
   };
 
   return (
-    <Link onClick={handleCardClick} to={`/details/${id}`}>
+    <Link onClick={handleCardClick} to={`/details/${id}`} className='link' >
       <div className="tmdb-card">
         <img className="poster-image" src={imageUrl} alt="" />
         <p>{title}</p>
