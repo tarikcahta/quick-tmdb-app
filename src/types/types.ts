@@ -9,6 +9,11 @@ export interface TVShow {
   name: string;
   poster_path: string;
   video?: string;
+  genres?: {
+    id: number;
+    name: string;
+  }[];
+  overview?: string;
 }
 
 export interface Movie {
@@ -16,6 +21,11 @@ export interface Movie {
   title: string;
   poster_path: string;
   video?: string;
+  genres?: {
+    id: number;
+    name: string;
+  }[];
+  overview?: string;
 }
 
 export type UnifiedMediaItem = TVShow | Movie;
