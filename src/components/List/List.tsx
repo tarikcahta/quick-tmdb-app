@@ -1,6 +1,5 @@
 import { UnifiedMediaItem, TVShow } from '../../types/types';
 import { useList } from '../../hooks/useList';
-import { useEffect } from 'react';
 import Card from '../Card/Card';
 
 const isTVShow = (item: UnifiedMediaItem): item is TVShow => {
@@ -9,27 +8,22 @@ const isTVShow = (item: UnifiedMediaItem): item is TVShow => {
 
 const List = () => {
   const { context } = useList();
-  const { listItems, listType, fetchList, loading, searchTerm, searchResults } =
-    context;
+  const { listItems, loading, searchTerm, searchResults } = context;
 
-  useEffect(() => {
-    if (listType) {
-      fetchList(listType);
-    }
+  // const itemsToRender = searchTerm.length >= 3 ? searchResults : listItems;
 
-    if (!searchTerm || searchTerm.length <= 3) {
-      fetchList(listType);
-    }
-  }, [listType, searchTerm, fetchList]);
-
-  const itemsToRender = searchTerm.length >= 3 ? searchResults : listItems;
+  const maxItemsToRender = 10;
+  const itemsToRender =
+    searchTerm.length >= 3
+      ? searchResults.slice(0, maxItemsToRender)
+      : listItems.slice(0, maxItemsToRender);
 
   if (!listItems || listItems.length === 0) {
     return <div>Loading...</div>;
   }
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div>Loading..</div>;
   }
 
   if (!itemsToRender.length) {
@@ -37,7 +31,7 @@ const List = () => {
   }
 
   return (
-    <div className="homepage">
+    <div className="list">
       {itemsToRender.map((item: UnifiedMediaItem) => (
         <Card
           key={item.id}
