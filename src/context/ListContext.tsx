@@ -29,7 +29,7 @@ export const ListContext = createContext<ListContextProps>({
 export const ListProvider = ({ children }: ListProviderProps) => {
   const [listType, setListType] = useState('');
   const [listItems, setListItems] = useState<(TVShow | Movie)[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState<UnifiedMediaItem[]>([]);
   const [selectedMediaItem, setSelectedMediaItem] = useState<
@@ -39,12 +39,16 @@ export const ListProvider = ({ children }: ListProviderProps) => {
   const fetchList = useCallback(async (type: string) => {
     setLoading(true);
     setListType(type);
+
     try {
-      const data = type === 'tvshows' ? await getTVShows() : await getMovies();
-      if (data) {
-        setListItems(data);
-      } else {
-        setListItems([]);
+      if (!loading) {
+        const data =
+          type === 'tvshows' ? await getTVShows() : await getMovies();
+        if (data) {
+          setListItems(data);
+        } else {
+          setListItems([]);
+        }
       }
     } catch (error) {
       console.error('Error fetching data:', error);
