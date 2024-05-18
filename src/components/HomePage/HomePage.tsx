@@ -1,10 +1,14 @@
 import '../../styles/HomePage.css';
 import List from '../List/List';
-import { Link } from 'react-router-dom';
 import SearchBar from '../SearchBar/SearchBar';
 import { useList } from '../../hooks/useList';
 
+import { useParams, Link } from 'react-router-dom';
+import { useEffect } from 'react';
+
 const HomePage = () => {
+  const { listType = "" } = useParams();
+
   const { context } = useList();
   const { fetchList } = context;
 
@@ -12,13 +16,25 @@ const HomePage = () => {
     fetchList(type);
   };
 
+  useEffect(() => {
+    fetchList(listType);
+  }, [listType]);
+
   return (
     <div className="homepage">
       <span className="navbar">
-        <Link to={'/tvshows'} onClick={() => handleLinkClick('tvshows')}>
+        <Link
+          className="tab"
+          to={'/tvshows'}
+          onClick={() => handleLinkClick('tvshows')}
+        >
           TV SHOWS
         </Link>
-        <Link to={'/movies'} onClick={() => handleLinkClick('movies')}>
+        <Link
+          className="tab"
+          to={'/movies'}
+          onClick={() => handleLinkClick('movies')}
+        >
           MOVIES
         </Link>
       </span>
