@@ -31,16 +31,34 @@
   width: 100%;
 }
 
-.tmdb-card-detailed {
-  min-width: 100vw;
+.tmdb-card-detailed-page {
   min-height: 100vh;
   max-width: 100vw;
+  padding: 0 3rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   background-color: #311414;
   color: whitesmoke;
+}
+
+.card-detailed {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.back-button {
+  margin-bottom: 1rem;
+}
+
+.movie-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .tab {
