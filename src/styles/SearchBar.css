@@ -1,0 +1,36 @@
+.search-bar {
+  background-color: aliceblue;
+  width: fit-content;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  border-radius: 0.4rem;
+  margin: 1rem 0rem;
+  width: 80%;
+  padding: 0.1rem 0;
+}
+
+.icon {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  margin-top: 0.1rem;
+}
+
+.search-field {
+  width: 97%;
+  font-size: 1rem;
+  margin-top: 0.1rem;
+  background-color: aliceblue;
+  border: none;
+  border-radius: 0.4rem;
+}
+
+.search-field:focus {
+  border: none;
+  outline: none;
+}
+
+.search-field:hover {
+  border: none;
+  outline: none;
+}
