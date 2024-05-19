@@ -1,25 +1,40 @@
 .link {
+  margin-top: 1.4rem;
+  padding-bottom: 0.35rem;
+  width: 80%;
   text-align: center;
   height: fit-content;
-  width: fit-content;
-  margin: 0;
-  padding: 0;
-  background-color: transparent;
+  background-color: #654848;
   display: flex;
   justify-content: center;
   align-items: center;
+  border: 0.1rem white solid;
+  border-radius: 2.2rem;
+
+  color: azure;
+  text-decoration: none;
+  overflow: hidden;
+}
+
+.link:hover,
+.link:focus {
+  background-color: #3e2323;
+  color: white;
 }
 
 .tmdb-card {
-  margin-top: 1.4rem;
-  width: 65%;
-  height: 50%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-size: 1.2rem;
 }
 
 .poster-image {
   width: 100%;
+}
+
+p {
+  padding: 0 0.5rem 0.2rem;
 }

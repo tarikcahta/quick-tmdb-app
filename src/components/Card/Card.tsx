@@ -9,7 +9,13 @@ const Card: React.FC<CardProps> = ({ posterPath, title, id }) => {
   const { context } = useList();
   const { setSelectedMediaItem, listType } = context;
 
-  const imageUrl = `https://image.tmdb.org/t/p/w300${posterPath}`;
+  let imageUrl;
+
+  if (!posterPath) {
+    imageUrl = `http://placehold.it/300x500&text=${title}`;
+  } else {
+    imageUrl = `https://image.tmdb.org/t/p/w500${posterPath}`;
+  }
 
   const handleCardClick = async () => {
     const detailedData =
