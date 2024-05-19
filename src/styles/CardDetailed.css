@@ -53,12 +53,8 @@
   }
 }
 
-
 @media only screen and (min-width: 2000px) {
-    .card-detailed {
-      width: 60%;
-    }
-  
-   
+  .card-detailed {
+    width: 60%;
   }
-  
+}
