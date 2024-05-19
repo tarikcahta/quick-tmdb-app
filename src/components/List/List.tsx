@@ -1,6 +1,8 @@
+import '../../styles/List.css';
 import { UnifiedMediaItem, TVShow } from '../../types/types';
 import { useList } from '../../hooks/useList';
 import Card from '../Card/Card';
+
 
 const isTVShow = (item: UnifiedMediaItem): item is TVShow => {
   return 'name' in item;
