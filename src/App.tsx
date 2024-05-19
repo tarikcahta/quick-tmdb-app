@@ -1,4 +1,3 @@
-import './styles/App.css';
 import HomePage from './components/HomePage/HomePage';
 import {
   BrowserRouter as Router,
