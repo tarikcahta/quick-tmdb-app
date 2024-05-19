@@ -7,7 +7,7 @@ import { useParams, Link } from 'react-router-dom';
 import { useEffect } from 'react';
 
 const HomePage = () => {
-  const { listType = "" } = useParams();
+  const { listType = '' } = useParams();
 
   const { context } = useList();
   const { fetchList } = context;
@@ -22,23 +22,25 @@ const HomePage = () => {
 
   return (
     <div className="homepage">
-      <span className="navbar">
-        <Link
-          className="tab"
-          to={'/tvshows'}
-          onClick={() => handleLinkClick('tvshows')}
-        >
-          TV SHOWS
-        </Link>
-        <Link
-          className="tab"
-          to={'/movies'}
-          onClick={() => handleLinkClick('movies')}
-        >
-          MOVIES
-        </Link>
-      </span>
-      <SearchBar />
+      <div className="intro-section">
+        <div className="navbar">
+          <Link
+            className="tab"
+            to={'/tvshows'}
+            onClick={() => handleLinkClick('tvshows')}
+          >
+            TV SHOWS
+          </Link>
+          <Link
+            className="tab"
+            to={'/movies'}
+            onClick={() => handleLinkClick('movies')}
+          >
+            MOVIES
+          </Link>
+        </div>
+        <SearchBar />
+      </div>
       <List />
     </div>
   );
