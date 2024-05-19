@@ -25,14 +25,14 @@ const HomePage = () => {
       <div className="intro-section">
         <div className="navbar">
           <Link
-            className="tab"
+            className={`tab ${listType === 'tvshows' ? 'tab-active' : ''}`}
             to={'/tvshows'}
             onClick={() => handleLinkClick('tvshows')}
           >
             TV SHOWS
           </Link>
           <Link
-            className="tab"
+            className={`tab ${listType === 'movies' ? 'tab-active' : ''}`}
             to={'/movies'}
             onClick={() => handleLinkClick('movies')}
           >

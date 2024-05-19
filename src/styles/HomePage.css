@@ -44,12 +44,13 @@
   border-right: 1px solid #654848;
 }
 
-.tab:hover {
+.tab:hover,
+.tab:focus {
   color: aliceblue;
-  background-color: #150202;
+  background-color: #230909;
 }
 
-.tab:focus {
+.tab-active {
   color: aliceblue;
   background-color: #150202;
 }
