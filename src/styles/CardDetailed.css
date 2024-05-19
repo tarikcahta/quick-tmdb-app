@@ -1,0 +1,36 @@
+.tmdb-card-detailed-page {
+  min-height: 100vh;
+  max-width: 100vw;
+  padding: 0 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #311414;
+  color: whitesmoke;
+}
+
+.back-button {
+  margin: 2rem 0;
+}
+
+.card-detailed {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.movie-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: fit-content;
+  margin-bottom: 1rem;
+}
+
+.poster-image {
+  width: 100%;
+}

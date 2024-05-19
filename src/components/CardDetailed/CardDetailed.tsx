@@ -1,5 +1,6 @@
 import { useList } from '../../hooks/useList';
 import { TVShow, UnifiedMediaItem } from '../../types/types';
+import '../../styles/CardDetailed.css';
 
 import { useNavigate } from 'react-router-dom';
 import { IoArrowBackCircle } from 'react-icons/io5';
