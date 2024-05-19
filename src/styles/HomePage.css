@@ -54,3 +54,20 @@
   color: aliceblue;
   background-color: #150202;
 }
+
+@media only screen and (min-width: 1000px) {
+  .homepage {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .navbar {
+    width: 90%;
+  }
+}
+
+@media only screen and (min-width: 2000px) {
+  .navbar {
+    width: 80%;
+  }
+}
