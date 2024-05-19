@@ -31,6 +31,34 @@
   margin-bottom: 1rem;
 }
 
+.genres-text {
+  font-size: 0.9rem;
+  margin-top: -0.4rem;
+}
+
 .poster-image {
   width: 100%;
+  border: 3px solid white;
+  border-radius: 2.2rem;
 }
+
+@media only screen and (min-width: 550px) {
+  .card-detailed {
+    width: 90%;
+  }
+
+  .overview-text {
+    font-size: 1.3rem;
+    margin-top: -0.2rem;
+  }
+}
+
+
+@media only screen and (min-width: 2000px) {
+    .card-detailed {
+      width: 60%;
+    }
+  
+   
+  }
+  

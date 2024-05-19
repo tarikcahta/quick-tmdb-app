@@ -50,13 +50,13 @@ const CardDetailed = () => {
         <div className="movie-details">
           <h2>{title}</h2>
           {selectedMediaItem.genres && (
-            <p>
+            <p className="genres-text">
               {selectedMediaItem.genres.map((genre) => (
                 <span key={genre.id}>{genre.name}, </span>
               ))}
             </p>
           )}
-          <p>{selectedMediaItem.overview}</p>
+          <p className="overview-text">{selectedMediaItem.overview}</p>
         </div>
       </div>
     </div>
