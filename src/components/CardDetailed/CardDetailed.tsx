@@ -15,7 +15,7 @@ const CardDetailed = () => {
   const navigate = useNavigate();
 
   if (!selectedMediaItem) {
-    return <div>No item selected</div>;
+    return <div className="no-item">No item selected</div>;
   }
 
   const title = selectedMediaItem

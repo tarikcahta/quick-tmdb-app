@@ -3,7 +3,6 @@ import { UnifiedMediaItem, TVShow } from '../../types/types';
 import { useList } from '../../hooks/useList';
 import Card from '../Card/Card';
 
-
 const isTVShow = (item: UnifiedMediaItem): item is TVShow => {
   return 'name' in item;
 };
@@ -12,8 +11,6 @@ const List = () => {
   const { context } = useList();
   const { listItems, loading, searchTerm, searchResults } = context;
 
-  // const itemsToRender = searchTerm.length >= 3 ? searchResults : listItems;
-
   const maxItemsToRender = 10;
   const itemsToRender =
     searchTerm.length >= 3
@@ -21,15 +18,15 @@ const List = () => {
       : listItems.slice(0, maxItemsToRender);
 
   if (!listItems || listItems.length === 0) {
-    return <div>Loading...</div>;
+    return <div className="list-none">Loading...</div>;
   }
 
   if (loading) {
-    return <div>Loading..</div>;
+    return <div className="list-none">Loading..</div>;
   }
 
   if (!itemsToRender.length) {
-    return <div>No results found.</div>;
+    return <div className="list-none">No results found.</div>;
   }
 
   return (
