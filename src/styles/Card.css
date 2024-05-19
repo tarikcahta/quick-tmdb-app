@@ -1,0 +1,25 @@
+.link {
+  text-align: center;
+  height: fit-content;
+  width: fit-content;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tmdb-card {
+  margin-top: 1.4rem;
+  width: 65%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.poster-image {
+  width: 100%;
+}

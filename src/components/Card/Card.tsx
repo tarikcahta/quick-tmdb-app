@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 
+import '../../styles/Card.css';
 import { CardProps } from '../../types/types';
 import { useList } from '../../hooks/useList';
 import { getMovieDetails, getTVSeriesDetails } from '../../requests/requests';
@@ -19,9 +20,9 @@ const Card: React.FC<CardProps> = ({ posterPath, title, id }) => {
   };
 
   return (
-    <Link onClick={handleCardClick} to={`/details/${id}`} className='link' >
+    <Link onClick={handleCardClick} to={`/details/${id}`} className="link">
       <div className="tmdb-card">
-        <img className="poster-image" src={imageUrl} alt="" />
+        <img className="poster-image" src={imageUrl} alt={title} />
         <p>{title}</p>
       </div>
     </Link>
