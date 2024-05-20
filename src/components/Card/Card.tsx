@@ -3,11 +3,16 @@ import { Link } from 'react-router-dom';
 import '../../styles/Card.css';
 import { CardProps } from '../../types/types';
 import { useList } from '../../hooks/useList';
-import { getMovieDetails, getTVSeriesDetails } from '../../requests/requests';
+import {
+  getMovieDetails,
+  getMovieVideos,
+  getTVSeriesDetails,
+  getTVSeriesVideos,
+} from '../../requests/requests';
 
 const Card: React.FC<CardProps> = ({ posterPath, title, id }) => {
   const { context } = useList();
-  const { setSelectedMediaItem, listType } = context;
+  const { setSelectedMediaItem, setSelectedVideos, listType } = context;
 
   let imageUrl;
 
@@ -22,7 +27,14 @@ const Card: React.FC<CardProps> = ({ posterPath, title, id }) => {
       listType === 'tvshows'
         ? await getTVSeriesDetails(id)
         : await getMovieDetails(id);
+
+    const videoData =
+      listType === 'tvshows'
+        ? await getTVSeriesVideos(id)
+        : await getMovieVideos(id);
+
     setSelectedMediaItem(detailedData);
+    setSelectedVideos(videoData);
   };
 
   return (
