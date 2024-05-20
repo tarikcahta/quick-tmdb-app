@@ -11,7 +11,7 @@ const isTVShow = (item: UnifiedMediaItem): item is TVShow => {
 
 const CardDetailed = () => {
   const { context } = useList();
-  const { selectedMediaItem, selectedVideos } = context;
+  const { selectedMediaItem, selectedVideos, selectedImages } = context;
   const navigate = useNavigate();
 
   let videoUrl;
@@ -27,10 +27,10 @@ const CardDetailed = () => {
       : selectedMediaItem.title
     : '';
 
-  if (!selectedMediaItem.poster_path) {
+  if (!selectedImages) {
     imageUrl = `http://placehold.it/300x500&text=${title}`;
   } else {
-    imageUrl = `https://image.tmdb.org/t/p/w500${selectedMediaItem.poster_path}`;
+    imageUrl = `https://image.tmdb.org/t/p/original${selectedImages.file_path}`;
   }
 
   if (selectedVideos !== undefined) {
