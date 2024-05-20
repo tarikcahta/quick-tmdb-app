@@ -11,6 +11,7 @@ import {
   ListContextProps,
   TVShow,
   UnifiedMediaItem,
+  Video,
 } from '../types/types';
 
 export const ListContext = createContext<ListContextProps>({
@@ -24,6 +25,8 @@ export const ListContext = createContext<ListContextProps>({
   selectedMediaItem: null,
   setSelectedMediaItem: () => {},
   loading: false,
+  selectedVideos: {},
+  setSelectedVideos: () => {},
 });
 
 export const ListProvider = ({ children }: ListProviderProps) => {
@@ -35,6 +38,7 @@ export const ListProvider = ({ children }: ListProviderProps) => {
   const [selectedMediaItem, setSelectedMediaItem] = useState<
     UnifiedMediaItem | undefined | null
   >(null);
+  const [selectedVideos, setSelectedVideos] = useState<Video>({});
 
   const fetchList = useCallback(async (type: string) => {
     setLoading(true);
@@ -111,6 +115,8 @@ export const ListProvider = ({ children }: ListProviderProps) => {
         loading,
         selectedMediaItem,
         setSelectedMediaItem,
+        selectedVideos,
+        setSelectedVideos,
       }}
     >
       {children}
