@@ -38,6 +38,16 @@ export interface ListProviderProps {
   children: React.ReactNode;
 }
 
+export type Video = {
+  name?: string;
+  key?: string;
+  site?: string;
+  size?: number;
+  type?: string;
+  official?: boolean;
+  id?: string;
+};
+
 export interface ListContextProps {
   listType: string;
   listItems: (TVShow | Movie)[];
@@ -49,6 +59,8 @@ export interface ListContextProps {
   search: (query: string) => Promise<void>;
   selectedMediaItem: UnifiedMediaItem | undefined | null;
   setSelectedMediaItem: (item: UnifiedMediaItem | undefined | null) => void;
+  selectedVideos: Video;
+  setSelectedVideos: (item: Video) => void;
 }
 
 export interface TMDBSearchResponse {
