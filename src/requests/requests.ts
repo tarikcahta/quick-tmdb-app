@@ -94,7 +94,7 @@ export const getMovieImages = async (movieId: number): Promise<any> => {
       `${BASE_URL}/movie/${movieId}/images?api_key=${API_KEY}`
     );
 
-    return response.data.results;
+    return response.data.backdrops[0];
   } catch (error) {
     console.error(`Error fetching images for movie ID ${movieId}:`, error);
     return undefined;
@@ -119,7 +119,7 @@ export const getTVSeriesImages = async (seriesId: number): Promise<any> => {
     const response: AxiosResponse<any> = await axios.get(
       `${BASE_URL}/tv/${seriesId}/images?api_key=${API_KEY}`
     );
-    return response.data.results;
+    return response.data.backdrops[0];
   } catch (error) {
     console.error(`Error fetching images for TV series ID ${seriesId}:`, error);
     return undefined;
