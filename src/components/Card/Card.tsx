@@ -5,14 +5,21 @@ import { CardProps } from '../../types/types';
 import { useList } from '../../hooks/useList';
 import {
   getMovieDetails,
+  getMovieImages,
   getMovieVideos,
   getTVSeriesDetails,
+  getTVSeriesImages,
   getTVSeriesVideos,
 } from '../../requests/requests';
 
 const Card: React.FC<CardProps> = ({ posterPath, title, id }) => {
   const { context } = useList();
-  const { setSelectedMediaItem, setSelectedVideos, listType } = context;
+  const {
+    setSelectedMediaItem,
+    setSelectedVideos,
+    setSelectedImages,
+    listType,
+  } = context;
 
   let imageUrl;
 
@@ -33,8 +40,14 @@ const Card: React.FC<CardProps> = ({ posterPath, title, id }) => {
         ? await getTVSeriesVideos(id)
         : await getMovieVideos(id);
 
+    const imageData =
+      listType === 'tvshows'
+        ? await getTVSeriesImages(id)
+        : await getMovieImages(id);
+
     setSelectedMediaItem(detailedData);
     setSelectedVideos(videoData);
+    setSelectedImages(imageData);
   };
 
   return (
