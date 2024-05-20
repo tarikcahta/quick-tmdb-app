@@ -47,6 +47,12 @@
   font-size: 3rem;
 }
 
+.trailer-video {
+  width: 100%;
+  height: 15rem;
+  background-color: aliceblue;
+}
+
 @media only screen and (min-width: 550px) {
   .card-detailed {
     width: 90%;
