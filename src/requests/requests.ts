@@ -59,7 +59,9 @@ export const searchMovies = async (
   }
 };
 
-export const getMovieDetails = async (movieId: number): Promise<Movie | undefined> => {
+export const getMovieDetails = async (
+  movieId: number
+): Promise<Movie | undefined> => {
   try {
     const response: AxiosResponse<Movie> = await axios.get(
       `${BASE_URL}/movie/${movieId}?api_key=${API_KEY}`
@@ -70,13 +72,68 @@ export const getMovieDetails = async (movieId: number): Promise<Movie | undefine
   }
 };
 
-export const getTVSeriesDetails = async (seriesId: number): Promise<TVShow | undefined> => {
+export const getTVSeriesDetails = async (
+  seriesId: number
+): Promise<TVShow | undefined> => {
   try {
     const response: AxiosResponse<TVShow> = await axios.get(
       `${BASE_URL}/tv/${seriesId}?api_key=${API_KEY}`
     );
     return response.data;
   } catch (error) {
-    console.error(`Error fetching details for TV series ID ${seriesId}:`, error);
+    console.error(
+      `Error fetching details for TV series ID ${seriesId}:`,
+      error
+    );
+  }
+};
+
+export const getMovieImages = async (movieId: number): Promise<any> => {
+  try {
+    const response: AxiosResponse<any> = await axios.get(
+      `${BASE_URL}/movie/${movieId}/images?api_key=${API_KEY}`
+    );
+
+    return response.data.results;
+  } catch (error) {
+    console.error(`Error fetching images for movie ID ${movieId}:`, error);
+    return undefined;
+  }
+};
+
+export const getMovieVideos = async (movieId: number): Promise<any> => {
+  try {
+    const response: AxiosResponse<any> = await axios.get(
+      `${BASE_URL}/movie/${movieId}/videos?api_key=${API_KEY}`
+    );
+
+    return response.data.results[0];
+  } catch (error) {
+    console.error(`Error fetching videos for movie ID ${movieId}:`, error);
+    return undefined;
+  }
+};
+
+export const getTVSeriesImages = async (seriesId: number): Promise<any> => {
+  try {
+    const response: AxiosResponse<any> = await axios.get(
+      `${BASE_URL}/tv/${seriesId}/images?api_key=${API_KEY}`
+    );
+    return response.data.results;
+  } catch (error) {
+    console.error(`Error fetching images for TV series ID ${seriesId}:`, error);
+    return undefined;
+  }
+};
+
+export const getTVSeriesVideos = async (seriesId: number): Promise<any> => {
+  try {
+    const response: AxiosResponse<any> = await axios.get(
+      `${BASE_URL}/tv/${seriesId}/videos?api_key=${API_KEY}`
+    );
+    return response.data.results[0];
+  } catch (error) {
+    console.error(`Error fetching videos for TV series ID ${seriesId}:`, error);
+    return undefined;
   }
 };
