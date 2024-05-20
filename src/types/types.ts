@@ -48,6 +48,16 @@ export type Video = {
   id?: string;
 };
 
+export type PosterImage = {
+  aspect_ratio?: number;
+  height?: number;
+  iso_639_1?: string;
+  file_path?: string;
+  vote_average?: number;
+  vote_count?: number;
+  width?: number;
+};
+
 export interface ListContextProps {
   listType: string;
   listItems: (TVShow | Movie)[];
@@ -61,6 +71,8 @@ export interface ListContextProps {
   setSelectedMediaItem: (item: UnifiedMediaItem | undefined | null) => void;
   selectedVideos: Video;
   setSelectedVideos: (item: Video) => void;
+  selectedImages: PosterImage;
+  setSelectedImages: (item: PosterImage) => void;
 }
 
 export interface TMDBSearchResponse {
