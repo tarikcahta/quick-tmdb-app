@@ -11,8 +11,11 @@ const isTVShow = (item: UnifiedMediaItem): item is TVShow => {
 
 const CardDetailed = () => {
   const { context } = useList();
-  const { selectedMediaItem } = context;
+  const { selectedMediaItem, selectedVideos } = context;
   const navigate = useNavigate();
+
+  let videoUrl;
+  let imageUrl;
 
   if (!selectedMediaItem) {
     return <div className="no-item">No item selected</div>;
@@ -24,9 +27,17 @@ const CardDetailed = () => {
       : selectedMediaItem.title
     : '';
 
-  const imageUrl = selectedMediaItem
-    ? `https://image.tmdb.org/t/p/w500${selectedMediaItem.poster_path}`
-    : '';
+  if (!selectedMediaItem.poster_path) {
+    imageUrl = `http://placehold.it/300x500&text=${title}`;
+  } else {
+    imageUrl = `https://image.tmdb.org/t/p/w500${selectedMediaItem.poster_path}`;
+  }
+
+  if (selectedVideos !== undefined) {
+    videoUrl = `https://www.youtube.com/embed/${selectedVideos.key}`;
+  } else {
+    videoUrl = null;
+  }
 
   const handleBackClick = () => {
     navigate(-1);
@@ -38,12 +49,13 @@ const CardDetailed = () => {
         <IoArrowBackCircle size={70} />
       </span>
       <div className="card-detailed">
-        {selectedMediaItem.video ? (
-          <video
+        {videoUrl !== null ? (
+          <iframe
             className="trailer-video"
-            src={selectedMediaItem.video}
+            src={videoUrl}
             title={title}
-          ></video>
+            allowFullScreen={true}
+          ></iframe>
         ) : (
           <img className="poster-image" src={imageUrl} alt={title} />
         )}
