@@ -30,6 +30,10 @@ const Card: React.FC<CardProps> = ({ posterPath, title, id }) => {
   }
 
   const handleCardClick = async () => {
+    // setSelectedMediaItem(null);
+    // setSelectedVideos({});
+    // setSelectedImages({});
+
     const detailedData =
       listType === 'tvshows'
         ? await getTVSeriesDetails(id)
