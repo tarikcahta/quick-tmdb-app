@@ -24,24 +24,31 @@ const HomePage = () => {
     <div className="homepage">
       <div className="intro-section">
         <div className="navbar">
-          <Link
-            className={`tab ${listType === 'tvshows' ? 'tab-active' : ''}`}
-            to={'/tvshows'}
-            onClick={() => handleLinkClick('tvshows')}
-          >
-            TV SHOWS
-          </Link>
-          <Link
-            className={`tab ${listType === 'movies' ? 'tab-active' : ''}`}
-            to={'/movies'}
-            onClick={() => handleLinkClick('movies')}
-          >
-            MOVIES
-          </Link>
+          <span className="sign-in-btn">
+            <a href="#">Sign in</a>
+          </span>
+          <span className="tabs">
+            <Link
+              className={`tab ${listType === 'tvshows' ? 'tab-active' : ''}`}
+              to={'/tvshows'}
+              onClick={() => handleLinkClick('tvshows')}
+            >
+              TV SHOWS
+            </Link>
+            <Link
+              className={`tab ${listType === 'movies' ? 'tab-active' : ''}`}
+              to={'/movies'}
+              onClick={() => handleLinkClick('movies')}
+            >
+              MOVIES
+            </Link>
+          </span>
         </div>
         <SearchBar />
       </div>
-      <List />
+      <div className="list-container">
+        <List />
+      </div>
     </div>
   );
 };
