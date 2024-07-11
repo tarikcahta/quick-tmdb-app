@@ -4,6 +4,7 @@ import '../../styles/CardDetailed.css';
 
 import { useNavigate } from 'react-router-dom';
 import { IoArrowBackCircle } from 'react-icons/io5';
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 
 const isTVShow = (item: UnifiedMediaItem): item is TVShow => {
   return 'name' in item;
@@ -11,21 +12,37 @@ const isTVShow = (item: UnifiedMediaItem): item is TVShow => {
 
 const CardDetailed = () => {
   const { context } = useList();
-  const { selectedMediaItem, selectedVideos, selectedImages } = context;
+  const { selectedMediaItem, selectedVideos, selectedImages, loading } =
+    context;
   const navigate = useNavigate();
 
   let videoUrl;
   let imageUrl;
-
-  if (!selectedMediaItem) {
-    return <div className="no-item">No item selected</div>;
-  }
 
   const title = selectedMediaItem
     ? isTVShow(selectedMediaItem)
       ? selectedMediaItem.name
       : selectedMediaItem.title
     : '';
+
+  const handleBackClick = () => {
+    navigate(-1);
+  };
+
+  if (loading) {
+    return <LoadingSpinner />;
+  }
+
+  if (!selectedMediaItem) {
+    return (
+      <div className="no-item">
+        <span onClick={handleBackClick} className="back-button">
+          <IoArrowBackCircle size={70} />
+        </span>
+        No information about movie/tv show!
+      </div>
+    );
+  }
 
   if (!selectedImages) {
     imageUrl = `http://placehold.it/300x500&text=${title}`;
@@ -38,10 +55,6 @@ const CardDetailed = () => {
   } else {
     videoUrl = null;
   }
-
-  const handleBackClick = () => {
-    navigate(-1);
-  };
 
   return (
     <div className="tmdb-card-detailed-page">
