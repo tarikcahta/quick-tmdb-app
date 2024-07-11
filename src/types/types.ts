@@ -63,6 +63,7 @@ export interface ListContextProps {
   listItems: (TVShow | Movie)[];
   fetchList: (type: string) => Promise<void>;
   loading?: boolean;
+  setLoading: (loading: boolean) => void;
   searchTerm: string;
   searchResults: UnifiedMediaItem[];
   setSearchTerm: (term: string) => Promise<void> | void;
