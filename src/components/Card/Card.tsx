@@ -18,7 +18,10 @@ const Card: React.FC<CardProps> = ({ posterPath, title, id }) => {
     setSelectedMediaItem,
     setSelectedVideos,
     setSelectedImages,
+    selectedMediaItem,
     listType,
+    loading,
+    setLoading,
   } = context;
 
   let imageUrl;
@@ -30,28 +33,43 @@ const Card: React.FC<CardProps> = ({ posterPath, title, id }) => {
   }
 
   const handleCardClick = async () => {
-    // setSelectedMediaItem(null);
-    // setSelectedVideos({});
-    // setSelectedImages({});
+    if (selectedMediaItem && selectedMediaItem.id === id) {
+      return;
+    }
 
-    const detailedData =
-      listType === 'tvshows'
-        ? await getTVSeriesDetails(id)
-        : await getMovieDetails(id);
+    setLoading(true);
+    setSelectedMediaItem(null);
+    setSelectedVideos({});
+    setSelectedImages({});
 
-    const videoData =
-      listType === 'tvshows'
-        ? await getTVSeriesVideos(id)
-        : await getMovieVideos(id);
+    try {
+      const detailedData =
+        listType === 'tvshows'
+          ? await getTVSeriesDetails(id)
+          : await getMovieDetails(id);
 
-    const imageData =
-      listType === 'tvshows'
-        ? await getTVSeriesImages(id)
-        : await getMovieImages(id);
+      const videoData =
+        listType === 'tvshows'
+          ? await getTVSeriesVideos(id)
+          : await getMovieVideos(id);
 
-    setSelectedMediaItem(detailedData);
-    setSelectedVideos(videoData);
-    setSelectedImages(imageData);
+      const imageData =
+        listType === 'tvshows'
+          ? await getTVSeriesImages(id)
+          : await getMovieImages(id);
+
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+
+      setSelectedMediaItem(detailedData);
+      setSelectedVideos(videoData);
+      setSelectedImages(imageData);
+    } catch (err) {
+      console.error('Error fetching data:', err);
+
+      setSelectedMediaItem(null);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
