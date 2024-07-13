@@ -1,0 +1,13 @@
+.comment {
+
+}
+
+.comment-author {
+    font-size: 1.05rem;
+    color: rgb(175, 167, 167);
+}
+
+.comment-text {
+    font-size: 0.85rem;
+    margin-top: -0.8rem;
+}
