@@ -58,6 +58,21 @@ export type PosterImage = {
   width?: number;
 };
 
+export interface Comment {
+  id: number;
+  author: string;
+  text: string;
+}
+
+export interface CommentProps {
+  author: string;
+  text: string;
+}
+
+export interface CommentsListProps {
+  comments: Comment[];
+}
+
 export interface ListContextProps {
   listType: string;
   listItems: (TVShow | Movie)[];
