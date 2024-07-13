@@ -67,6 +67,37 @@
   border-radius: 2rem;
 }
 
+.comments {
+  width: 100%;
+  background-color: rgb(95, 39, 148);
+  padding-left: 3rem;
+  padding-bottom: 0.8rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-intro {
+  padding: 1rem 0rem 0.3rem 0rem;
+}
+
+.add-comment-btn {
+  width: 100%;
+  margin: 2rem 0rem;
+  padding: 0.5rem 0rem 0rem 3rem;
+  background-color: aqua;
+  padding-bottom: 2rem;
+  color: #000;
+}
+
+.comment-input {
+  width: 100%;
+  margin: 2rem 0rem;
+  padding: 0.5rem 0rem 0rem 3rem;
+  background-color: aqua;
+  padding-bottom: 2rem;
+  color: #000;
+}
+
 @media only screen and (min-width: 550px) {
   .card-detailed {
     width: 90%;
