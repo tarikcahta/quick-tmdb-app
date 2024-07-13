@@ -24,9 +24,9 @@ const HomePage = () => {
     <div className="homepage">
       <div className="intro-section">
         <div className="navbar">
-          <span className="sign-in-btn">
+          <Link to="/sign-in" className="sign-in-btn">
             <a href="#">Sign in</a>
-          </span>
+          </Link>
           <span className="tabs">
             <Link
               className={`tab ${listType === 'tvshows' ? 'tab-active' : ''}`}
