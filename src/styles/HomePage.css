@@ -128,7 +128,8 @@
 
 .list-container {
   width: 100%;
-  min-height: calc(100vh - 150px); 
+  min-height: calc(100vh - 150px);
+  padding-top: 13rem; 
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
