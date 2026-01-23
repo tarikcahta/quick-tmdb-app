@@ -59,18 +59,42 @@ export type PosterImage = {
 };
 
 export interface Comment {
-  id: number;
+  id: string;
   author: string;
   text: string;
+  created_at?: string;
+  user_id?: string;
 }
 
 export interface CommentProps {
   author: string;
   text: string;
+  isOwner?: boolean;
+  isEditing?: boolean;
+  editValue?: string;
+  onEditStart?: () => void;
+  onEditChange?: (value: string) => void;
+  onEditSave?: () => void;
+  onEditCancel?: () => void;
+  onDelete?: () => void;
 }
 
 export interface CommentsListProps {
   comments: Comment[];
+  currentUserId?: string | null;
+  editingCommentId?: string | null;
+  editingValue?: string;
+  onEditStart?: (commentId: string, currentText: string) => void;
+  onEditChange?: (value: string) => void;
+  onEditSave?: () => void;
+  onEditCancel?: () => void;
+  onDelete?: (commentId: string) => void;
+}
+
+export interface Profile {
+  id: string;
+  username: string | null;
+  email?: string | null;
 }
 
 export interface ListContextProps {
