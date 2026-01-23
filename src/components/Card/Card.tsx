@@ -37,6 +37,10 @@ const Card: React.FC<CardProps> = ({ posterPath, title, id }) => {
       return;
     }
 
+    if (listType) {
+      sessionStorage.setItem('tmdb:listType', listType);
+    }
+
     setLoading(true);
     setSelectedMediaItem(null);
     setSelectedVideos({});
