@@ -12,6 +12,9 @@ It is a simple app, showing top 10 popular movies/tv shows. It is a React applic
 Clone the repository to your local machine.
 Navigate to the project directory and install dependencies - npm install
 Add .env file in root directory. Add api key for tmdb api under the name REACT_APP_TMDB_API_KEY.
+Add Supabase credentials:
+REACT_APP_SUPABASE_URL
+REACT_APP_SUPABASE_ANON_KEY.
 Start the development server with npm start
 
 ## Folder structure
@@ -37,6 +40,22 @@ The tmdb-app project is organized into several directories and files, each servi
 - package-lock.json & package.json: List project dependencies and metadata.
 - README.md: Provides documentation and instructions for the project.
 - tsconfig.json: Configures TypeScript compiler options.
+
+## Supabase setup
+
+This app uses Supabase for email OTP authentication and comment storage.
+
+1) Create a Supabase project.
+2) In Supabase Auth settings, enable Email OTP (magic code). Supabase sends a 6-digit code; length is not configurable.
+3) Run the SQL from `supabase/schema.sql` in the Supabase SQL editor.
+4) Add these to `.env`:
+
+```
+REACT_APP_SUPABASE_URL=your_supabase_url
+REACT_APP_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
+
+Supabase stores one-time passcodes and validates them during OTP login. User emails live in Supabase Auth; usernames are stored in the `profiles` table. Anonymous comments are supported: if a user is not signed in, their comment is stored with `author_name = 'Anonymous'` and can only be deleted by an admin using the Supabase service role.
 
 # Getting Started with Create React App
 
