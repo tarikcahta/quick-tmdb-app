@@ -18,7 +18,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 2rem;
+  /* padding-top: 1rem; */
   padding-bottom: 1rem;
   position: -webkit-sticky; 
   position: fixed;
@@ -35,10 +35,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  /* align-content: space-between; */
+  justify-content: space-between;
   /* border: 1px solid #00ff15; */
   border-radius: 1rem;
   overflow: hidden;
+}
+
+.auth-area {
+  /* width: 100%; */
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
 }
 
 .sign-in-btn {
@@ -46,22 +54,61 @@
   justify-content: center;
   align-items: center;
   padding: 0.6rem 0rem;
-  margin-bottom: 1rem;
   width: 100%;
   border: 1px solid transparent;
   border-radius: 1rem;
   background-color: #654848;
-}
-
-.sign-in-btn a {
   font-size: 1.3rem;
   text-decoration: none;
   color: white;
 }
 
+.user-badge {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 0.6rem 1rem;
+  border-radius: 1rem;
+  background-color: #2f2b3f;
+  color: #e8e6f0;
+  font-size: 1.05rem;
+}
+
+.profile-link {
+  margin-left: 10px;
+  font-size: 0.85rem;
+  color: #f3c55c;
+  text-decoration: none;
+}
+
+.profile-link:hover,
+.profile-link:focus {
+  text-decoration: underline;
+}
+
 .sign-in-btn:hover,
 .sign-in-btn:focus {
   background-color: #e04a4a;
+}
+
+.sign-out-btn {
+  border: none;
+  border-radius: 8px;
+  background: #3e2323;
+  color: #fff;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+}
+
+.sign-out-btn:hover,
+.sign-out-btn:focus {
+  background: #4e2d2d;
+}
+
+.list {
+  margin-top: 2rem;
 }
 
 .tabs {
@@ -106,11 +153,11 @@
   .navbar {
     width: 90%;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
   }
 
-  .sign-in-btn {
+  .auth-area {
     width: 30%;
     margin-bottom: 0;
   }

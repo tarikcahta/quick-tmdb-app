@@ -2,6 +2,13 @@
 
 }
 
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
 .comment-author {
     font-size: 1.05rem;
     color: rgb(175, 167, 167);
@@ -10,4 +17,34 @@
 .comment-text {
     font-size: 0.85rem;
     margin-top: -0.8rem;
+}
+
+.comment-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.comment-action {
+    border: none;
+    border-radius: 6px;
+    padding: 4px 10px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    background: #f3c55c;
+    color: #1a1a1a;
+}
+
+.comment-action.secondary {
+    background: #3c2f2f;
+    color: #fff;
+}
+
+.comment-edit-input {
+    margin-top: 6px;
+    padding: 6px 8px;
+    border-radius: 6px;
+    border: 1px solid #6a6a6a;
+    background: #1d1d1d;
+    color: #fff;
+    width: 100%;
 }
