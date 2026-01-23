@@ -80,6 +80,11 @@
   padding: 1rem 0rem 0.3rem 0rem;
 }
 
+.comment-status {
+  margin: 0 0 1rem 0;
+  color: #f7d8ff;
+}
+
 .add-comment-btn {
   width: 100%;
   margin: 2rem 0rem;
@@ -95,6 +100,15 @@
   padding: 0.5rem 0rem 0rem 3rem;
   background-color: aqua;
   padding-bottom: 2rem;
+  color: #000;
+}
+
+.comment-anon-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 8px 0 6px 0;
+  font-size: 0.85rem;
   color: #000;
 }
 
